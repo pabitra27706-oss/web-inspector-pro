@@ -1,20 +1,30 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-  measurementId: "YOUR_MEASUREMENT_ID"
+  apiKey: "AIzaSyAlzBbVziZm-tgy3XvtJ9Rj0GQ1DZyqyPA",
+  authDomain: "web-inspector-pro-52414.firebaseapp.com",
+  databaseURL: "https://web-inspector-pro-52414-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "web-inspector-pro-52414",
+  storageBucket: "web-inspector-pro-52414.firebasestorage.app",
+  messagingSenderId: "501258349129",
+  appId: "1:501258349129:web:72c29aa2c06a42a6012d98",
+  measurementId: "G-8FQ5JP9L85"
 };
 
-firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
+// Initialize Firebase services
 const auth = firebase.auth();
 const db = firebase.firestore();
 const rtdb = firebase.database();
-const storage = firebase.storage();
 const functions = firebase.functions();
 
 db.settings({ experimentalForceLongPolling: true });
@@ -23,5 +33,4 @@ window.WIP = window.WIP || {};
 window.WIP.auth = auth;
 window.WIP.db = db;
 window.WIP.rtdb = rtdb;
-window.WIP.storage = storage;
 window.WIP.functions = functions;
